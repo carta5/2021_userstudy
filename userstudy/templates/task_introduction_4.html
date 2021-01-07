@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block main %}
+
+<div class="column column-75">
+    <h2>遺伝子組み換え食品に関する情報検索タスク (4/4)</h2>
+    <div>
+        事前情報3
+        {{ additional_scenario_3 | safe }}
+    </div>
+    <p>これから以下の検索開始ボタンをクリックして，実際にウェブで「遺伝子組み換え食品」について調べてください．</p>
+    <div class="task-description">
+        <p style="font-weight:bold; color:red;">下記の「検索結果を表示」のボタンをクリックし，表示された検索結果リストおよびそのリンク先の情報を閲覧してください．<span class="emphasis">「遺伝子組み換え食品」を摂取することの安全性</span>について納得のいく結論が出せましたら，検索をやめて最終的なあなたの意見，その根拠を下記フォームに入力してください．</p>
+    </div>
+
+    <div style="font-size:smaller;">
+    <h6><u>注意事項</u></h6>
+    <ul>
+        <li>表示された検索結果リストおよびそのリンク先情報のみを閲覧してください<br />（検索キーワードは修正できません）</li>
+        <li>検索結果は最大30件表示されます</li>
+    </ul>
+    </div>
+
+    <a id="search-button" class="button button-outline" target="_blank" href="{% url 'userstudy:search' %}" style="margin-bottom:3em;">検索結果を表示</a>
+    <hr />
+    
+    <form method="post">{% csrf_token %}
+        <h5 class="question">ウェブ検索の結果をもとに，あなたの回答を入力してください</h5>
+        <h6>あなたは「遺伝子組み換え食品」を摂取することの安全性についてどのように考えますか？</h6>
+        {{ form.answer }}
+
+        <h5 class="question">上記回答の理由を簡潔に述べてください</h5>
+        {{ form.reason }}
+
+        <h5 class="question">上記回答の根拠となったウェブサイトのURLを以下に貼り付けてください（複数可．URL例：archive/1）</h5>
+        {{ form.url }}
+
+    <input id="submit-button" type="submit" value="回答を送信する" >
+    </form>
+</div>
+
+{% endblock main %}
+
+{% load static %}
+{% block head %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'js/browser-polyfill.min.js' %}"></script>
+<script src="{% static 'js/userbehavior.js' %}"></script>
+<script src="{% static 'js/helper.js' %}"></script>
+<script src="{% static 'js/browsing-monitor.js' %}"></script>
+<script type="text/javascript">
+    let projectID = '{{ project_id }}';
+    let userID = '{{ user_id }}';
+</script>
+{% endblock head %}

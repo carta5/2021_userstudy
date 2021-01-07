@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block main %}
+
+<div class="column column-75">
+    <h2>事後アンケート</h2>
+    <form method="post">{% csrf_token %}
+        <p>健康情報サイトに関する以下の質問について，あなたの意見を教えてください．</p>
+
+        <h5 class="question">あなたは，インターネット上のどのような健康情報サイトが利用できるか知っている．</h5>
+        {{ form.e_health_literacy_q1 }}
+
+        <h5 class="question">あなたは，インターネット上のどこに役立つ健康情報サイトがあるか知っている．</h5>
+        {{ form.e_health_literacy_q2 }}
+
+        <h5 class="question">あなたは，インターネット上で役立つ健康情報サイトの見つけ方を知っている．</h5>
+        {{ form.e_health_literacy_q3 }}
+
+        <h5 class="question">あなたは，自分自身の健康状態についての疑問を解決するために，どのようにインターネットを使用すればよいかを知っている．</h5>
+        {{ form.e_health_literacy_q4 }}
+
+        <h5 class="question">あなたは，インターネット上で見つけた健康情報の活用方法を知っている．</h5>
+        {{ form.e_health_literacy_q5 }}
+
+        <h5 class="question">あなたは，インターネット上で見つけた健康情報サイトを評価することができるスキルがある．</h5>
+        {{ form.e_health_literacy_q6 }}
+
+        <h5 class="question">あなたは，インターネット上の質の高い健康情報サイトと質の低い健康情報サイトを見分けることができる．</h5>
+        {{ form.e_health_literacy_q7 }}
+
+        <h5 class="question">あなたは，健康状態について判断する際に，インターネットからの情報を活用する自信がある．</h5>
+        {{ form.e_health_literacy_q8 }}
+
+        <hr />
+        <p>差し支えなければ，あなたの年齢，性別，学歴について教えてください．</p>
+
+        <h5 class="question">あなたの年齢は以下のどれに該当しますか？</h5>
+        {{ form.age }}
+
+        <h5 class="question">あなたの性別は以下のどれに該当しますか？</h5>
+        {{ form.sex }}
+
+        <h5 class="question">あなたが最後に卒業したあるいは在学中の教育機関は次のどれですか？</h5>
+        <p>中退は卒業には含まれません</p>
+        {{ form.education }}
+
+    <input type="submit" value="すべてのタスクを終了する">
+    </form>
+</div>
+
+<div id="project-id" data-project-id="{{ project_id }}"></div>
+<div id="user-id" data-user-id="{{ user_id }}"></div>
+{% endblock main %}
+
+{% load static %}
+{% block head %}
+{% endblock head %}

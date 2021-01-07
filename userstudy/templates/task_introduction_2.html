@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+<div class="column column-75">
+    <h2>遺伝子組み換え食品に関する情報検索タスク (2/4)</h2>
+    <h4>事前情報1を表示</h4>
+    <div class="task-description">
+        {{ additional_scenario_1 | safe }}
+    </div>
+
+    <a class='button' href='{% url 'userstudy:task_introduction_3' %}'>次に進む</a>
+</div>
+
+{% endblock main %}
+
+{% load static %}
+{% block head %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'js/browser-polyfill.min.js' %}"></script>
+<script src="{% static 'js/userbehavior.js' %}"></script>
+<script src="{% static 'js/helper.js' %}"></script>
+<script src="{% static 'js/browsing-monitor.js' %}"></script>
+<script type="text/javascript">
+    let projectID = '{{ project_id }}';
+    let userID = '{{ user_id }}';
+</script>
+{% endblock head %}

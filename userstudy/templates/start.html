@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+<div class="column">
+    <h2><span class="attention">本タスクについて</span></h2>
+    <h3>タスクの流れ</h3>
+    <p>
+        本タスクでは，あるトピックについてウェブ情報検索を行ったという想定で，表示された検索結果リストを閲覧していただきます．
+        その上で，<span class='attention'>表示された検索結果リストおよびそのリンク先の情報のみ</span>を用いて，用意された質問への回答を考えていただきます．
+    </p>
+
+    <p>
+        検索タスクは合計1件で，タスクの前後に簡単なアンケートに回答していただきます．
+    </p>
+
+    <p>
+        検索タスクでは，質問に対して納得のいく回答が得られるまで，検索結果リストおよびリンク先のウェブページの閲覧を行ってください．納得のいく結論が得られましたら，情報の検索・閲覧を終了し，回答を報告してください．
+    </p>
+
+    <p>
+        なお，下記ボタンをクリックして表示された検索結果，および検索結果からリンクされたページのみを用いて質問に答えてください．くれぐれもGoogle検索やYahoo検索など一般のウェブ検索エンジンは使用しないでください．
+    </p>
+
+    <hr />
+
+    <a class='button' href='{% url 'userstudy:ready' %}'>次に進む</a>
+</div>
+
+
+{% endblock main %}
+
+{% block head %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'js/browser-polyfill.min.js' %}"></script>
+<script src="{% static 'js/userbehavior.js' %}"></script>
+<script src="{% static 'js/helper.js' %}"></script>
+<script src="{% static 'js/browsing-monitor.js' %}"></script>
+<script type="text/javascript">
+    let projectID = '{{ project_id }}';
+    let userID = '{{ user_id }}';
+</script>
+{% endblock head %}

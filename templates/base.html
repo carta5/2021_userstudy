@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ title }}</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+        <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+      {% block head %}
+      {% endblock head %}
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                {% block header %}
+                {% endblock header %}
+            </header>
+            <main>
+                <div class="row">
+                    {% block main %}
+                    {% endblock main %}
+                </div>
+            </main>
+
+        </div>
+    </body>
+</html>

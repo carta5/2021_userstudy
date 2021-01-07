@@ -1,0 +1,52 @@
+main {
+    margin-top: 7.5rem;
+    margin-bottom: 4.5rem;
+}
+
+
+form ul{
+    list-style: none !important;
+}
+
+h2.task-top span {
+    background: linear-gradient(transparent 70%, rgba(155, 77, 202, 0.4) 70%);
+}
+
+h5.question:before {
+    content: 'Q. ';
+    color: #9b4dca;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+h5.question span {
+    background: linear-gradient(transparent 70%, rgba(155, 77, 202, 0.4) 70%);
+}
+
+.task-description .emphasis {
+    background: linear-gradient(transparent 70%, rgba(155, 77, 202, 0.4) 70%);
+}
+
+span.attention {
+    background: linear-gradient(transparent 70%, rgba(155, 77, 202, 0.4) 70%);
+}
+
+h4.todo:before {
+    content: 'ToDo. ';
+    color: #9b4dca;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+section.hidden-section {
+    display: none;
+}
+
+section.feature-section {
+    transition: display 2s ease 0s;
+}
+
+a.disabled-link {
+    pointer-events: none;
+    opacity: 0.5;
+}

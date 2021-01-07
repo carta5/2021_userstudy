@@ -1,0 +1,75 @@
+header {
+    margin-top: 4rem;
+}
+
+header img {
+    height: 35px;
+}
+
+header input#search-box {
+    background-color: white;
+    width: 60%;
+    font-size: 1em;
+}
+
+div.srg div.rc {
+    margin-bottom: 2em;
+    line-height: 1.2;
+}
+
+div.srg div.rc h3.r {
+    font-size: 18px;
+    margin-bottom: 3px;
+}
+
+div.srg div.rc h3.r em {
+    font-style: normal;
+    font-weight: bold;
+}
+
+cite._Rm {
+    font-size: 14px;
+    color: green;
+    font-style: normal;
+    font-weight: bolder;
+}
+
+div.srg div.rc div.s span.st {
+    font-size: 13px;
+    color: rgb(84, 84, 84);
+}
+
+div.srg div.rc div.s span.st em {
+    color: rgb(50, 50, 50);
+    font-style: normal;
+    font-weight: bold;
+}
+
+a {
+    color: #1a0dab;
+}
+
+div.query-suggest-area {
+    margin-bottom: 4rem;
+}
+
+.query-suggest-area-title {
+    color: black;
+    margin-bottom: 1rem;
+}
+
+div.query-suggest-area p._e4b {
+    clear: both;
+    margin-bottom: 0;
+}
+
+div.query-suggest-area div.query-suggest-column {
+    flex: initial;
+    width: initial;
+    padding-right: 3rem;
+}
+
+a.suggested-term {
+    font-size: 0.9em;
+    color: #1a0dab;
+}

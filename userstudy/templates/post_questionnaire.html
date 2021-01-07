@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block main %}
+
+<div class="column column-75">
+    <h2>{{ title }}</h2>
+    <h3>検索タスクに関するアンケート</h3>
+    <form method="post">{% csrf_token %}
+        <h5 class="question">あなたは先の情報検索タスクにどの程度時間をかけましたか？</h5>
+        {{ form.effort }}
+
+        <h5 class="question">あなたは先の情報検索タスクで回答の参考になる情報を探索するときに，「ウェブサイトにデータや証拠が掲載されているか」についてどの程度重視しましたか？</h5>
+        {{ form.evidence_existence }}
+
+        <h5 class="question">あなたは先の情報検索タスクで回答の参考になる情報を探索するときに，「ウェブサイトに書かれている情報が新しいか」についてどの程度重視しましたか？</h5>
+        {{ form.freshness }}
+
+        <h5 class="question">あなたは先の情報検索タスクで回答の参考になる情報を探索するときに，「ウェブサイトに書かれている内容の分かりやすさ」についてどの程度重視しましたか？</h5>
+        {{ form.comprehensibility }}
+
+        <h5 class="question">あなたは先の情報検索タスクで回答の参考になる情報を探索するときに，「ウェブサイトの発信者が専門知識を持っているか」についてどの程度重視しましたか？</h5>
+        {{ form.source_expertise }}
+
+        <h5 class="question">あなたは先の情報検索タスクで回答の参考になる情報を探索するときに，「ウェブサイトの見た目のきれいさ」についてどの程度重視しましたか？</h5>
+        {{ form.aesthetics }}
+
+        <h5 class="question">あなたは先の情報検索タスクで回答の参考になる情報を探索するときに，「ウェブサイトに書かれている内容の詳しさについて」についてどの程度重視しましたか？</h5>
+        {{ form.content_coverage }}
+
+    <input type="submit" value="次のタスクへ進む">
+    </form>
+</div>
+
+{% endblock main %}
+
+{% load static %}
+{% block head %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'js/browser-polyfill.min.js' %}"></script>
+<script src="{% static 'js/userbehavior.js' %}"></script>
+<script src="{% static 'js/helper.js' %}"></script>
+<script src="{% static 'js/browsing-monitor.js' %}"></script>
+<script type="text/javascript">
+    let projectID = '{{ project_id }}';
+    let userID = '{{ user_id }}';
+</script>
+{% endblock head %}

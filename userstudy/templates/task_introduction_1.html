@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+<div class="column column-75">
+    <h2>遺伝子組み換え食品に関する情報検索タスク (1/4)</h2>
+    <div class="task-description">
+        {{ task_scenario |safe}}
+    </div>
+
+    <div>
+        <a><img src="{% static 'img/natane.PNG' %}" /></a>
+    </div>
+
+    <a class='button' href='{% url 'userstudy:task_introduction_2' %}'>次に進む</a>
+</div>
+
+{% endblock main %}
+
+{% load static %}
+{% block head %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'js/browser-polyfill.min.js' %}"></script>
+<script src="{% static 'js/userbehavior.js' %}"></script>
+<script src="{% static 'js/helper.js' %}"></script>
+<script src="{% static 'js/browsing-monitor.js' %}"></script>
+<script type="text/javascript">
+    let projectID = '{{ project_id }}';
+    let userID = '{{ user_id }}';
+</script>
+{% endblock head %}

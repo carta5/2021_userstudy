@@ -1,0 +1,84 @@
+from django.contrib import admin
+
+from django.contrib import admin
+# #from .models import TaskGroup
+from .models import Description
+from .models import Task
+# from .models import WorkTaskRelation 
+# #from .models import WorkAllocation
+from .models import TaskAnswer
+from .models import PreQuestionnaireAnswer
+from .models import PostQuestionnaireAnswer
+from .models import ExitQuestionnaireAnswer
+from .models import SearchResult
+#from .models import Completion
+
+
+# # Register your models here.
+
+class DescriptionAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'infomation_1','infomation_2')
+
+class TaskAdmin(admin.ModelAdmin):
+    list_display = ('pk','title','scenario')
+
+
+# class WorkTaskRelationAdmin(admin.ModelAdmin):
+#     list_display = ('group_id',
+#                     'worker_condition',
+#                     'task')
+
+
+
+class TaskAnswerAdmin(admin.ModelAdmin):
+    list_display = (
+                    'task',
+                    'answer',
+                    'created_at')
+
+
+class PreQuestionnaireAnswerAdmin(admin.ModelAdmin):
+    list_display = (
+                    'knowledge',
+                    'prior_belief',
+                    'created_at')
+
+
+class PostQuestionnaireAnswerAdmin(admin.ModelAdmin):
+    list_display = (
+                    'effort',
+                    'created_at')
+
+
+class ExitQuestionnaireAnswerAdmin(admin.ModelAdmin):
+    list_display = (
+                    'age',
+                    'sex',
+                    'education',
+                    'created_at')
+
+class SearchResultAdmin(admin.ModelAdmin):
+    list_display = (
+        'misc',
+        'rank',
+        'title',
+        'url',
+        'snippet',
+    )
+# class CompletionAdmin(admin.ModelAdmin):
+#      list_display = (
+#                     'participant',
+#                     'created_at')
+
+
+admin.site.register(Task, TaskAdmin)
+admin.site.register(Description, DescriptionAdmin)
+#admin.site.register(WorkTaskRelation, WorkTaskRelationAdmin)
+#admin.site.register(WorkAllocation, WorkAllocationAdmin)
+admin.site.register(TaskAnswer, TaskAnswerAdmin)
+admin.site.register(PreQuestionnaireAnswer, PreQuestionnaireAnswerAdmin)
+admin.site.register(PostQuestionnaireAnswer, PostQuestionnaireAnswerAdmin)
+admin.site.register(ExitQuestionnaireAnswer, ExitQuestionnaireAnswerAdmin)
+admin.site.register(SearchResult, SearchResultAdmin)
+
+#admin.site.register(Completion, CompletionAdmin)

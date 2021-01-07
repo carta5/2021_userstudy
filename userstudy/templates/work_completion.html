@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+
+<div class="column column-75">
+    <h2>実験にご協力いただきありがとうございました</h2>
+    <p>これにてタスクは完了です．タスクを正常に終了し報酬を受け取るために、<span class="attention">以下の手続きを必ず行ってください</span>。</p>
+
+    <section id="issue-code" style="margin-bottom:4em;">
+    <h4 class="todo">{{ recruit_website }}への終了コードの反映</h4>
+    <p>
+        {{ recruit_website }}の作業ページに下記終了コードをコピー&ペーストしてください．コピー&ペーストが完了しましたら，以下の「タスクを終了する」ボタンをクリックしてください．<br />
+        終了コードの一致を確認次第，報酬をお支払いいたします．<br />
+        終了コードを入力がない場合、<span class="attention">作業報酬はお支払いいたしません。</span>
+    </p>
+    <blockquote>
+        {{ completion_code }}
+    </blockquote>
+    <a class="button" href="{% url 'logout' %}">タスクを終了する</a>
+    </section>
+</div>
+{% endblock main %}
+
+{% block head %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'js/browser-polyfill.min.js' %}"></script>
+<script src="{% static 'js/userbehavior.js' %}"></script>
+<script src="{% static 'js/helper.js' %}"></script>
+<script src="{% static 'js/browsing-monitor.js' %}"></script>
+<script type="text/javascript">
+    let projectID = '{{ project_id }}';
+    let userID = '{{ user_id }}';
+</script>
+{% endblock head %}

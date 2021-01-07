@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="column column-50">
+    <h2>ユーザ実験への参加登録</h2>
+    <section class="common-form">
+        <form method="post">
+            <p><span style="color:red">ユーザ名には{{ recruit_website }}IDを入力してください．パスワードは1回限りしか使用しないため，適当なパスワードを入力してください．</span></p>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="submit">登録</button>
+        </form>
+    </section>
+</div>
+{% endblock main %}

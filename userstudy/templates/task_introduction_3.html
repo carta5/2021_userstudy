@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+<div class="column column-75">
+    <h2>遺伝子組み換え食品に関する情報検索タスク (3/4)</h2>
+
+    <div class="task-description">
+        {{ additional_scenario_2 | safe }}
+    </div>
+    
+    <!-- 動画内容を確認するための質問-->
+    <div class="column column-75">
+        <form method="post">{% csrf_token %}
+    
+            <h5 class="question">上記の動画の内容を100字程度の文章でまとめてください</h5>
+            {{ form.video_content }}
+            <hr />
+        <input type="submit" value="次に進む">
+        </form>
+    
+    </div>
+    
+
+{% endblock main %}
+
+{% load static %}
+{% block head %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'js/browser-polyfill.min.js' %}"></script>
+<script src="{% static 'js/userbehavior.js' %}"></script>
+<script src="{% static 'js/helper.js' %}"></script>
+<script src="{% static 'js/browsing-monitor.js' %}"></script>
+<script type="text/javascript">
+    let projectID = '{{ project_id }}';
+    let userID = '{{ user_id }}';
+</script>
+{% endblock head %}

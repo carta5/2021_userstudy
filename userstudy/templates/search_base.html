@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <script src="{% static 'js/browser-polyfill.min.js' %}"></script>
+    <script src="{% static 'js/userbehavior.js' %}"></script>
+    <script src="{% static 'js/helper.js' %}"></script>
+    <script src="{% static 'js/browsing-monitor.js' %}"></script>
+    <script type="text/javascript">
+        let projectID = '{{ project_id }}';
+        let userID = '{{ user_id }}';
+    </script>
+
+    {% block head %}
+    {% endblock head %}
+</head>
+<body>
+    {% block header %}
+    {% endblock header %}
+
+    <div class="container">
+        <div class="row">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+</body>
+</html>

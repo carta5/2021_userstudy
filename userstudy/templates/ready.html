@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+<div class="column">
+<h2>本番タスクが始まります</h2>
+<p>
+    次のページから，タスクが開始されます．<br />
+    本番タスク中は，1件の検索タスクおよび事後アンケートが終了するまで<span class="attention">退席しないでください</span>．<br />
+    準備ができましたら，下記「タスクを開始する」ボタンをクリックしてください．
+</p>
+
+<a class='button' href='{% url 'userstudy:pre_questionnaire' %}'>タスクを開始する</a>
+</div>
+
+{% endblock main %}
+
+{% block head %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'js/browser-polyfill.min.js' %}"></script>
+<script src="{% static 'js/userbehavior.js' %}"></script>
+<script src="{% static 'js/helper.js' %}"></script>
+<script src="{% static 'js/browsing-monitor.js' %}"></script>
+<script type="text/javascript">
+    let projectID = '{{ project_id }}';
+    let userID = '{{ user_id }}';
+</script>
+{% endblock head %}

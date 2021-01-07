@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="column">
+<h2>{{ recruit_website }}掲載「ユーザ実験」開始にあたって</h2>
+<p>本ウェブサイトは，{{ recruit_website }}にて掲載中の情報検索タスクを行うためのサイトです．
+
+<p>
+    タスクを開始するにあたって，簡易的なユーザ登録をする必要があります．<br />
+    簡易的なユーザ登録では下記情報を登録していただく必要があります．
+    <ul>
+        <li>{{ recruit_website }}ID（ユーザ名）</li>
+        <li>パスワード（1回限りしか使用しないため，適当なもので構いません）</li>
+    </ul>
+
+</p>
+<p>
+    本タスクでは，タスク中のウェブ情報検察・閲覧行動を記録させていただきます．<br />
+    記録したログ情報は匿名化されており，学術研究活動以外の目的で使用することはありません．
+</p>
+
+<p>以上に同意していただける方のみ，下記ボタンをクリックしてユーザ登録を行い，タスクを開始してください．</p>
+<a class='button' href='{% url 'accounts:signup' %}'>ユーザ登録</a>
+<a class='button button-outline' href='{% url 'userstudy:ready' %}'>既にユーザ登録をした方はこちら</a>
+</div>
+{% endblock main %}

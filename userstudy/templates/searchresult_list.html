@@ -1,0 +1,45 @@
+{% extends "userstudy/templates/search_base.html" %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/serp.css' %}" />
+<script src="" charset="utf-8"></script>
+{% endblock head %}
+
+{% block header %}
+<header>
+    <section class="container">
+        <a><img src="{% static 'img/search-logo.png'%}" /></a>
+        <form>
+            <input type="search" id="search-box" name="query" value="遺伝子組み換え食品 安全性"  autocomplete="off"  readonly="readonly" />
+            <!--button type="submit" class="button">検索</button-->
+        </form>
+    </section>
+</header>
+{% endblock header %}
+
+{% block content %}
+            <div class="cloumn column-60">
+                <div id="search-result-set">
+                    <div id="search-result-list" class="column column-60">
+                        <div class="g">
+                            <div class="srg">
+                                {% for search_result in search_result_list %}
+                                <div class="rc">
+                                    <h3 class="r"><a href="{% url 'userstudy:archive' page_id=search_result.rank %}" target="_blank" data-rank="{{ search_result.rank }}">{{ search_result.title }}</a></h3>
+                                    <div class="s">
+                                        <div>
+                                            <div class="f kv _SWb" style="white-space:nowrap">
+                                                <cite class="_Rm">{{ search_result.url|truncatechars:50 }}</cite>
+                                            </div>
+                                            <span class="st">{{ search_result.snippet }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock content %}
