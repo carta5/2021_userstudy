@@ -31,7 +31,7 @@ from .forms import VideoContentCheckForm
 PROJECT_ID = "MS-M12020-{}".format(settings.RECRUIT_CODE)
 TITLE = "ユーザ実験（{}）".format(PROJECT_ID)
 TASK_NUM = 1
-SITE_PATH = "https://less-experiments.com"
+SITE_PATH = "https://xxxxxx.com"
 
 
 # Create your views here.
@@ -66,8 +66,6 @@ class ReadyView(LoginRequiredMixin, TemplateView):
         context['project_id'] = PROJECT_ID
         context['user_id'] = self.request.user.username
         context['title'] = "情報検索タスク"
-        #context['next_task_id'] = self.request.session["task_ids"][0]
-        print(context)
         return context
 
 
@@ -87,7 +85,6 @@ class PreQuestionnaireView(LoginRequiredMixin, CreateView):
         context['title'] = TITLE
         context['project_id'] = PROJECT_ID
         context['user_id'] = self.request.user.username
-        print("prequestion", context, self.request.user.username)
         return context
 
     def form_valid(self, form):
@@ -99,7 +96,7 @@ class PreQuestionnaireView(LoginRequiredMixin, CreateView):
     def form_invalid(self, form):
         return super().form_invalid(form)
 
-#検索タスクの最初（ここでは導入文と画像を表示するだけ）
+#検索タスクの最初
 class TaskIntroductionFirstView(LoginRequiredMixin, TemplateView):
     login_url = '/accounts/login'
     template_name = 'userstudy/templates/task_introduction_1.html'
@@ -109,13 +106,13 @@ class TaskIntroductionFirstView(LoginRequiredMixin, TemplateView):
         context['project_id'] = PROJECT_ID
         context['user_id'] = self.request.user.username
         
-        #taskの導入分はどのidでも同じなので，とりあえずid=1でやっている
+        #taskの導入文は同じなのでid=1
         task = Task.objects.get(id=1)
         #シナリオを保存
         context["task_scenario"] = task.scenario
         return context
 
-# #検索タスクの2番目（事前情報1を表示）条件分岐はここから
+# #検索タスクの2番目
 class TaskIntroductionSecondView(LoginRequiredMixin, TemplateView):
     login_url = '/accounts/login'
     template_name = 'userstudy/templates/task_introduction_2.html'
@@ -244,7 +241,6 @@ class TaskIntroductionFourthView(LoginRequiredMixin, CreateView):
 
         form.instance.participant = user_obj
         form.instance.task = task_obj
-        print(form)
         return super().form_valid(form)
 
 
