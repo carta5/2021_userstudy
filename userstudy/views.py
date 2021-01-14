@@ -42,6 +42,7 @@ class IndexView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['title'] = TITLE
         context['recruit_website'] = settings.RECRUIT_WEBSITE
+        
         return context
 
 class StartView(LoginRequiredMixin, TemplateView):
@@ -54,7 +55,6 @@ class StartView(LoginRequiredMixin, TemplateView):
         context['project_id'] = PROJECT_ID
         context['user_id'] = self.request.user.username
 
-        print(context)
         return context
 
 class ReadyView(LoginRequiredMixin, TemplateView):
